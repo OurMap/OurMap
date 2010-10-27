@@ -28,7 +28,7 @@
     </target>
 
 
-    <target depends="clean,build-project,war,deploy" name="build"/>
+    <target depends="clean,build-project,war" name="build"/>
 
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -57,7 +57,7 @@
 		</war>
     </target>
 
-	<target name="deploy" depends="war" >
+	<target name="deploy" depends="build" >
 		<copy file="${dist}/${war.file}" todir="${webapps.dir}"/>
 	</target>
 
