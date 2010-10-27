@@ -1,0 +1,67 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+	font-size: 80%;
+	font-weight: bold;
+	background: #FFF;
+	}
+
+h2 {
+	font: bold 14px Verdana, Arial, Helvetica, sans-serif;
+	color: #000;
+	margin: 0px;
+	padding: 0px 0px 0px 15px;
+}
+	
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	}
+
+img {
+    border: none;
+} 
+
+/*- Menu 14--------------------------- */
+
+#divQueryResults li a:link, #divQueryResults li a:visited {
+color: red;
+background: yellow;
+font-style: italic;
+text-decoration: line-through; 
+	}
+
+#divQueryResults li a:hover, #divQueryResults li #current {
+color: red;
+background: yellow;
+font-style: italic;
+text-decoration: line-through;
+	}
+	
+#menu14 {
+	width: 205px;
+	margin: 10px;
+	}
+	
+#menu14 li a {
+	height: 32px;
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	height: 24px;
+	text-decoration: none;
+	}	
+	
+#menu14 li a:link, #menu14 li a:visited {
+	color: #333;
+	display: block;
+	background:  url(menu14.gif);
+	padding: 8px 0 0 10px;
+	}
+	
+#menu14 li a:hover, #menu14 li #current {
+	color: #333;
+	display: block;
+	background:  url(menu14.gif) 0 -32px;
+	padding: 8px 0 0 10px;
+	}

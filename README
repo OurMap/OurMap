@@ -1,0 +1,161 @@
+README
+========
+About OurMap
+========
+
+For questions or comments please contact us at: [ourmap@ourmapmaker.ca]
+
+This is a web-based server application that lets people create their own interactive maps and add rich media content to GPS "hotspots" within them -in order  to tell place-based stories, record locative data, etc. 
+
+Using a Drupal-based front-end portal, users signup for an account and can then create new "projects" for hosting and sharing maps. From these project pages users can create maps associated with those projects, invite other users to become members of their projects, and add content to maps created by others. 
+
+Maps can be uniquely customized in a number of ways in order to suit different types of community mapping, environmental mapping, or locative storytelling project. (The system was primarily designed for educational purposes but can be used for many different styles of mapping project.)
+ 
+In general, the system is designed to facilitate collaborative mapping projects involving distributed communities of contributors. Once created by an "Owner", maps can then be shared with others publically or with more restricted groups of project Members and Co-Owners. Depending on the settings chosen in the Viewing and Editing rights, there are many possible ways to control who is allowed to view project maps and add to/edit their content, depending on the preferences set by map Owners. Users also have some control over how their hotspot media is actually displayed, which facilitates different styles of map-based storytelling. 
+
+Overall, the OurMap system consists of 3 components: A java mapping client (based on OpenLayers) and a postgres database are designed to integrate with another portal site created in Drupal for handling user account creation and project creation. Essentially, because OurMap was developed on a short timeframe with an educational application as the goal, Drupal was use to create a user-friendly front end portal with social media capabilities designed to serve a specific community of school-based users. However, OurMap was initially created as a standalone mapping application, and it will likely develop somewhat in this direction in the future. With a little additional hacking, this application will be relatively easy to modify to run independently of the Drupal portal, either by installing the application on a server as a standalone web app, or integrating/embedding it within other web sites where map creation and display is desirable. In order to assist future developers who may want to use the same integrated Drupal strategy, we have included an "empty" copy of our Drupal site template here alongside the OurMap sourcecode. 
+
+Eventually, we hope to develop (or see others develop) mobile client applications designed to allow users to upload and download GPS-tagged hotspot media content remotely from "the field" via mobile and wireless networks. We have designed the database with the intent of making it compatible with network transfer with mobile devices such as java and android phones and iPhones. But this will be a separate project and a mobile app is not included in the present system. 
+
+For more details on OurMap (its use, implementation and components) please see:
+
+http://github.com/OurMap/OurMap
+
+http://ourmapmaker.ca/content/about-ourmap
+
+
+========
+OurMap License
+========
+
+OurMap is Copyright (c) 2010, The Banff Centre and the OurMap sourcecode is licensed under the new (modified) BSD license. 
+
+See a copy of the license here: 
+<http://github.com/OurMap/OurMap/blob/master/license.txt>
+
+More information for developers, including the license info, is also here: 
+<http://www.ourmapmaker.ca/content/about-ourmap>
+
+
+========
+Architecture, Libraries and Plugins
+========
+
+OurMap is a java-based web application, which relies on information stored on Postgres and MySql databases. It is build on Java 1.6, and needs an HTTP server and servlet container to run, such as Jetty or Tomcat. 
+
+Download the Java 1.6 from:  http://www.oracle.com/technetwork/java/javase/downloads/jdk6-jsp-136632.html 
+
+Jetty (http://jetty.codehaus.org/jetty/) is the server we chose for running OurMap on the ourmapmaker.ca site, but any equivalent server (such as Tomcat) may be used instead.  (For a full list of possibilities see: http://en.wikipedia.org/wiki/List_of_Servlet_containers )
+
+OurMap is constructed in three tiers:
+1.	Database Integration Tier:  cuestadao
+2.	Business Tier:  OurMap
+3.	Web Tier:  OurMapWeb
+
+[Note: In this document we often use the term "OurMap" to refer to the whole application, but when speaking of tiers, it refers to the second tier specifically.]
+
+
+Java Libraries Needed:
+
+Java Libraries used in each tier:
+1.	cuestadao: log4j
+2.	OurMap: cuestadao, log4j, PostgreSQL, MySQL
+3.	OurMapWeb: cuestadao, log4j, PostgreSQL, MySQL, OurMap, CuestaLib, Struts 1.3.8
+
+
+The source files for "cuestadao", "Cuestalib", "OurMap" and "OurMapWeb" have been provided in the OurMap repository on github.  Sources and license info (BSD) for "cuestadao" and "Cuestalib" can also be found at:  http://github.com/m-cuesta/tiers
+
+The following java libraries are ALSO needed to compile and run the OurMap application, but have not been included in the OurMap repository. Developers can download them at their respective sites:
+
+Name : log4j 
+Version : 1.2.16
+Site: http://logging.apache.org/log4j/1.2/index.html
+Download link: http://logging.apache.org/log4j/1.2/download.html
+
+Name : PostgresSQL JDBC Driver 
+Version : 8.3-603.jdbc3 or higher
+Site: http://jdbc.postgresql.org/
+License: http://jdbc.postgresql.org/license.html
+Description: A binary file named "postgresql-i.3-603.jdbc3.jar" 
+Download link: http://jdbc.postgresql.org/download.html
+
+Name : MySQL JDBC Driver 
+Version : 5.1.6 or higher
+Site: http://jdbc.postgresql.org/
+Download link: http://www.mysql.com/downloads/connector/j/
+
+Name : Struts 1.3.8
+Version : 1.3.8
+Site: http://struts.apache.org/1.3.10/index.html
+Download link: http://struts.apache.org/downloads.html
+
+
+Web Tier Components
+
+The web tier (OurMapWeb) uses the libraries listed below  for mapping, javascript, and gui. These components, which are all open source (BSD) or free software unless otherwise noted, are included in the present release: 
+
+1) Google Maps JavaScript API V2 
+OurMap users Google Maps version 2, which is deprecated, but performed better for us than version 3. 
+http://code.google.com/intl/no/apis/maps/documentation/javascript/v2/reference.html
+
+2) OpenLayers 2.10
+http://openlayers.org/
+
+3) Drag and drop images in a list:
+http://www.java2s.com/Code/JavaScript/Ajax-Layer/Draganddropimagesinalist.htm
+(This code is BSD except for one file, dom-drag.js, which is public domain).
+
+4)  Drag and drop tool for organizing hotspot "categories" using JavaScript, from www.redips.net 
+ http://www.redips.net/javascript/drag-and-drop-table-content/
+
+5)  Free CSS Menu Generator
+http://www.generateit.net/menu-generator/
+
+Graphics thanks to Explodingboy.com
+
+ Free CSS Vertical Menus for the left menu on the map screen:
+http://www.exploding-boy.com/images/EBmenus/menus.html  See "Tab Menu 14" 
+
+Free CSS Navigation Menus for the popup window:
+http://www.exploding-boy.com/images/cssmenus/menus.html See "Tab Menu J"
+ 
+6) Cross browser Quicktime verification script: PluginDetect , by Eric Gerds
+Version 0.7.3  (Updated 6/5/10)
+http://www.pinlady.net/PluginDetect/
+
+7) Nifty Corners by Alessandro Fulciniti (the actual code was not used but it provided "inspiration" and as such deserves credit here)
+ http://www.html.it/articoli/nifty/index.html
+
+8) TreeView by GubuSoft (Proprietary)
+Currently, OurMap also uses one proprietary library to control the displayed layers on the mapping gui: TreeView (www.treeview.net) from GubuSoft. Because we want OurMap to be a purely open source system, we plan to replace this library very soon with an open source equivalent. In the meantime, because the license for TreeView is non-transferable by us, developers who want to use OurMap as-is will have to acquire their own license for TreeView from GubuSoft. Note that it is possible to obtain a FREE version (http://www.treeview.net/tv/download.asp) for this software, or to purchase developer or distributor licenses (www.treeview.net/tv/license.asp). However, the free license requires display of a link on the tree control that we felt interfered with the clean design and usability of OurMap, so we opted for the distributor's license instead. Other developers are welcome to replace it with the free version if they are willing to include the link and abide by the other free license terms. For inquiries, email:  GubuSoft@GubuSoft.com. 
+
+GubuSoft is owned and operated by Conor O'Mahony.  This copy of the Treeview script has been purchased from GubuSoft/ Conor O'Mahony by The Banff Centre under a Distributor's License.  Terms of the Distributor's license are here: http://www.treeview.net/tv/license_dist.asp
+
+As part of this license we are required to display the following copyright notice here: 
+
+Copyright (C) 2006 Conor O'Mahony (gubusoft@gubusoft.com)
+All rights reserved.
+
+This application includes the TreeView script. You are not authorized to download and/or use the TreeView source code from this application for your own purposes. For your own FREE copy of the TreeView script, please visit the http://www.treeview.net Web site.
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+Please also note that one of the libraries distributed with TreeView is actually an open source library originally developed by Netscape Corporation / Bob Clary and distributed under a MPL 1.1/GPL 2.0/LGPL 2.1 tri-license. This license allows developers to use that library under the terms of any of these 3 licenses (we choose LGPL 2.1, see: www.gnu.org/licenses/lgpl-2.1.html), and this same right to choose transfers to future developers unless otherwise specified.  For full tri-license details see: http://bclary.com/lib/js/license/mpl-tri-license.txt
+
+
+=============
+Installation
+=============
+
+For instructions on installing the OurMap java site, database and drupal components see the installation guide(s) included with the code in our github repository: http://github.com/OurMap/OurMap
+
+
+=============
+Design Documentation
+=============
+
+We have also included design documents in the OurMap repository containing information for other developers about how the application is designed and how they may continue developing it. Again, see: http://github.com/OurMap/OurMap
+
+
+
+

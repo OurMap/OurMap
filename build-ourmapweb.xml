@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="EasyMapWeb">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <property file="ant.properties" />
+
+<!-- Bibliotecas _______________________________________________________________ -->
+
+    <path id="clases.path">
+      <fileset dir="${lib.dir}">
+       <include name="**/*.jar" />
+      </fileset>
+    </path>
+
+<!-- Fin Bibliotecas _______________________________________________________________ -->
+
+
+    <target name="init">
+        <mkdir dir="${webout.dir}"/>
+        <mkdir dir="${dist}"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${webout.dir}"/>
+    	<delete file="${dist}/${war.file}" />
+    </target>
+
+
+    <target depends="clean,build-project,war,deploy" name="build"/>
+
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="${webout.dir}" source="${source}" target="${target}">
+            <src path="${websrc.dir}"/>
+            <classpath refid="clases.path"/>
+            <classpath>
+              <pathelement location="${dist}/${jar.name}" />
+            </classpath>
+        </javac>
+    </target>
+
+	<target name="war" depends="clean,build-project"  >
+		<echo message="Armando el .war" />
+		<mkdir dir="${dist}" />
+		<war destfile="${dist}/${war.file}" webxml="${web.dir}/WEB-INF/web.xml">
+                    <fileset dir="${web.dir}" excludes="WEB-INF/*.*" />
+                    <webinf dir="${web.dir}/WEB-INF"  />
+                    <classes dir="${webout.dir}" />
+                    <lib dir="${lib.dir}" >
+                       <include name="**.jar" />
+                    </lib>
+                    <lib dir="${dist}/" >
+                       <filename name="${jar.name}" />
+                    </lib>
+		</war>
+    </target>
+
+	<target name="deploy" depends="war" >
+		<copy file="${dist}/${war.file}" todir="${webapps.dir}"/>
+	</target>
+
+	<target name="undeploy" >
+		 <delete file="${webapps.dir}/${war.file}"/>
+	</target>
+
+
+</project>

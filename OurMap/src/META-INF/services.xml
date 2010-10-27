@@ -1,0 +1,13 @@
+<service >
+    <description>
+        This is a sample Web Service with two operations, echo and ping.
+    </description>
+    <parameter name="ServiceClass" locked="false">com.bnmi.easymap.control.EasyDelegate</parameter>
+    <operation name="listUsers">
+        <messageReceiver class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver"/>
+    </operation>
+    <operation name="getUser">
+        <messageReceiver class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver"/>
+    </operation>
+ </service>
+

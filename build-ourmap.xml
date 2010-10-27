@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Easymap build file -->
+<!-- Autor: Camilo Cuesta -->
+
+<project basedir="." default="build" name="easymap">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <property file="ant.properties" />
+
+    <path id="clases.path">
+      <fileset dir="${lib.dir}">
+       <include name="**/*.jar" />
+      </fileset>
+    </path>
+
+    <target name="init">
+        <mkdir dir="${out.dir}"/>
+    	<mkdir dir="${dist}" />
+    </target>
+
+    <target name="clean">
+        <delete dir="${out.dir}"/>
+    	<delete file="${dist}/${jar.name}" />
+    </target>
+
+    <target depends="clean,build-project" name="build"/>
+
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="${out.dir}" source="${source}" target="${target}">
+            <src path="${src.dir}"/>
+            <classpath refid="clases.path"/>
+        </javac>
+
+<copy todir="${out.dir}">
+<fileset dir="${src.dir}" includes="**/*.properties"/>
+</copy>
+
+        <antcall target="jar"/>
+    </target>
+
+    <target name="jar" >
+        <echo message="Armando archivo jar"/>
+        <jar destfile="${dist}/${jar.name}">
+           <fileset dir="${out.dir}" />
+         </jar>
+    </target>
+
+
+</project>

@@ -1,0 +1,56 @@
+div#nifty {
+    margin: 0 0;background: #eeeeee
+}
+
+div#niftyFloat {
+	margin: 0 0;
+	background: #EEEEEE;
+	position: absolute;
+	left: 619px;
+	top: 79px;
+	width: 361px;
+	height: 141px;
+
+}
+
+div#niftyBlue {
+    margin: 0 0;
+    background: #3366aa;
+}
+
+
+b.rtop, b.rbottom {
+    display:block;
+    background: #FFF
+}
+
+b.rtop b, b.rbottom b{ 
+    display:block;
+    height: 1px;
+    overflow: hidden; 
+    background: #eeeeee
+}
+
+b.r1{margin: 0 5px}
+b.r2{margin: 0 3px}
+b.r3{margin: 0 2px}
+b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
+
+b.rtopblue, b.rbottomblue {
+    display:block;
+    background: #FFF;
+    clear: both;
+}
+
+b.rtopblue b, b.rbottomblue b{
+    display:block;
+    height: 1px;
+    overflow: hidden;
+    background: #3366aa;
+    clear: both;
+}
+
+b.rtopblue b.r4, b.rbottomblue b.r4{margin: 0 1px;height: 2px}
+
+
+

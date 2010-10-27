@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    
+    <form-beans>
+        <form-bean name="LogonActionForm"   type="com.bnmi.ourmap.web.actions.LogonActionForm" />
+        <form-bean name="EditProfileForm"   type="com.bnmi.ourmap.web.actions.EditProfileForm" />
+        <form-bean name="NewProjectForm"    type="com.bnmi.ourmap.web.actions.NewProjectForm" />
+        <form-bean name="NewMapForm"        type="com.bnmi.ourmap.web.actions.NewMapForm" />
+        <form-bean name="ViewMapForm"       type="com.bnmi.ourmap.web.actions.ViewMapForm" />
+        <form-bean name="EditMapForm"       type="com.bnmi.ourmap.web.actions.EditMapForm" />
+        <form-bean name="NewLayerForm"      type="com.bnmi.ourmap.web.actions.NewLayerForm" />
+        <form-bean name="ListLayersForm"    type="com.bnmi.ourmap.web.actions.ListLayersForm" />
+        <form-bean name="NewHotspotForm"    type="com.bnmi.ourmap.web.actions.NewHotspotForm" />
+        <form-bean name="ListHotspotsForm"  type="com.bnmi.ourmap.web.actions.ListHotspotsForm" />
+        <form-bean name="NewMediaForm"      type="com.bnmi.ourmap.web.actions.NewMediaForm" />
+        <form-bean name="NewHsMediaForm"      type="com.bnmi.ourmap.web.actions.NewHsMediaForm" />
+        <form-bean name="NewObjectForm"     type="com.bnmi.ourmap.web.actions.NewObjectForm" />
+        <form-bean name="SaveMapFeatureForm" type="com.bnmi.ourmap.web.actions.SaveMapFeatureForm" />
+        <form-bean name="AddNewMediaHsForm"   type="com.bnmi.ourmap.web.actions.AddNewMediaHsForm" />
+        <form-bean name="OrderSessionObjectsForm"   type="com.bnmi.ourmap.web.actions.OrderSessionObjectsForm" />
+        <form-bean name="OrderObjectsForm"   type="com.bnmi.ourmap.web.actions.OrderObjectsForm" />
+        <form-bean name="EditHsForm"        type="com.bnmi.ourmap.web.actions.EditHsForm" />
+        <form-bean name="NewUserForm"       type="com.bnmi.ourmap.web.actions.NewUserForm" />
+        <form-bean name="EditProjectForm"   type="com.bnmi.ourmap.web.actions.EditProjectForm" />
+        <form-bean name="ViewProjectForm"   type="com.bnmi.ourmap.web.actions.ViewProjectForm" />
+        <form-bean name="AddMapOwnerForm"   type="com.bnmi.ourmap.web.actions.AddMapOwnerForm" />
+        <form-bean name="AddMapMemberForm"   type="com.bnmi.ourmap.web.actions.AddMapMemberForm" />
+        <form-bean name="EditMapPrivacyForm"   type="com.bnmi.ourmap.web.actions.EditMapPrivacyForm" />
+        <form-bean name="EditableHotspotsForm" type="com.bnmi.ourmap.web.actions.EditableHotspotsForm" />
+        <form-bean name="DeleteMapForm"         type="com.bnmi.ourmap.web.actions.DeleteMapForm" />
+        <form-bean name="EditMapBoundariesForm" type="com.bnmi.ourmap.web.actions.EditMapBoundariesForm" />
+        <form-bean name="EditMapLayersForm"       type="com.bnmi.ourmap.web.actions.EditMapLayersForm" />
+        <form-bean name="EditDisplayKeywordsForm" type="com.bnmi.ourmap.web.actions.EditDisplayKeywordsForm" >
+            <form-property name="dsKs" type="java.lang.String" />
+        </form-bean>
+
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"             path="/Welcome.do"/>
+        <forward name="logon_jsp"           path="/index.jsp" />
+        <forward name="main_jsp"            path="/main.jsp" />
+        <forward name="bye_jsp"             path="/bye.jsp" />
+        <forward name="view_user_jsp"       path="/view_user.jsp" />
+        <forward name="view_profile_jsp"    path="/view_profile.jsp" />
+        <forward name="list_users_jsp"      path="/list_users.jsp" />
+        <forward name="list_users_do"       path="/listusers.do" />
+        <forward name="error_jsp"           path="/error.jsp" />
+        <forward name="list_projects_do"    path="/listprojects.do" />
+        <forward name="list_projects_jsp"   path="/list_projects.jsp" />
+        <forward name="view_project_jsp"    path="/view_project.jsp" />
+        <forward name="viewproject_do"      path="/viewproject.do" />
+        <forward name="viewmap_jsp"         path="/viewmap.jsp" />
+        <forward name="viewmap_do"          path="/viewmap.do" />
+        <forward name="editmap_jsp"         path="/editmap.jsp" />
+        <forward name="editmap_do"          path="/editmap.do" />
+        <forward name="newlayer_do"         path="/newlayer.do" />
+        <forward name="results_jsp"         path="/results.jsp" />
+        <forward name="listlayers_do"       path="/listlayers.do" />
+        <forward name="listlayers_jsp"      path="/listlayers.jsp" />
+        <forward name="listhotspots_jsp"    path="/listhotspots.jsp" />
+        <forward name="list_objects_to_upload" path="/list_objects_to_upload.jsp" />
+        <forward name="re_new_media"        path="/re_new_media.jsp" />
+        <forward name="list_session_objects" path="/list_session_objects.jsp" />
+        <forward name="list_session_objects_do" path="/listSessionObjects.do" />
+        <forward name="view_content"        path="/content.jsp" />
+        <forward name="list_categories"     path="/list_categories.jsp" />
+        <forward name="list_categories_do"  path="/listcategories.do" />
+        <forward name="list_keywords_do"    path="/listkeywords.do" />
+        <forward name="list_keywords"       path="/list_keywords.jsp" />
+        <forward name="list_keywords_combo" path="/list_keywords_combo.jsp" />
+        <forward name="org_cats"            path="/org_cats.jsp" />
+        <forward name="previewmap_jsp"      path="/previewmap.jsp" />
+        <forward name="newmap_0"            path="/newmap_0.jsp" />
+        <forward name="newmap_2"            path="/newmap_2.jsp" />
+        <forward name="newmap_3"            path="/newmap_3.jsp" />
+        <forward name="newmap_4"            path="/newmap_4.jsp" />
+        <forward name="newmap_5"            path="/newmap_5.jsp" />
+        <forward name="newmap_6"            path="/newmap_6.jsp" />
+        <forward name="newmap_7"            path="/newmap_7.jsp" />
+        <forward name="newmap_8"            path="/newmap_8.jsp" />
+        <forward name="newmap_65"            path="/newmap_65.jsp" />
+        <forward name="newmap_64"            path="/newmap_64.jsp" />
+        <forward name="newmap_66"            path="/newmap_66.jsp" />
+        <forward name="newmap_71"            path="/newmap_71.jsp" />
+        <forward name="newmap_72"            path="/newmap_72.jsp" />
+        <forward name="newmap_73"            path="/newmap_73.jsp" />
+        <forward name="org_cats_session"     path="/org_cats_session.jsp" />
+        <forward name="list_objects"         path="/list_objects.jsp" />
+        <forward name="list_objects_do"      path="/listobjects.do" />
+        <forward name="add_content_new"      path="/add_content_new.jsp" />
+        <forward name="add_content_new_do"   path="/addcontentnew.do" />
+        <forward name="newhotspot_do"        path="/newhotspot.do" />
+        <forward name="newhotspotdisplaymode_do" path="/newhotspotdisplaymode.do" />
+        <forward name="newhotspotdisplaymode" path="/newhotspotdisplaymode.jsp" />
+        <forward name="SaveMapFeature"       path="/SaveMapFeature.jsp" />
+        <forward name="savemapfeature_do"    path="/SaveMapFeature.do" />
+        <forward name="layertab"             path="/layertab.jsp" />
+        <forward name="add_new_media_hs"     path="/add_new_media_hs.jsp" />
+        <forward name="add_new_media_hs_do"  path="/addnewmediahs.do" />
+        <forward name="editsessionobject"    path="/edithsobject.jsp" />
+        <forward name="edithsobject"         path="/edithsobject.jsp" />
+
+        <forward name="hs_content"           path="/hs_content.jsp" />
+        <forward name="viewhscontent"        path="/viewhscontent.jsp" />
+        <forward name="viewhsmetadata"       path="/viewhsmetadata.jsp" />
+        <forward name="viewobjectmetadata"   path="/viewobjectmetadata.jsp" />
+        <forward name="viewhsdescription"    path="/viewhsdescription.jsp" />
+        <forward name="viewhsdescription_do" path="/viewhsdescription.do" />
+        <forward name="viewhscontent_do"     path="/viewhscontent.do" />
+        <forward name="viewhsobject"         path="/viewhsobject.jsp" />
+        <forward name="viewhsobject_do"         path="/viewhsobject.do" />
+        <forward name="ediths"               path="/ediths.jsp" />
+        <forward name="viewhs"               path="/viewhs.jsp" />
+        <forward name="edithsmedia"          path="/edithsmedia.jsp" />
+        <forward name="viewhsedit"           path="/viewhsedit.jsp" />
+        <forward name="deletehs"             path="/deletehs.jsp" />
+        <forward name="edithsinfo"           path="/edithsinfo.jsp" />
+        <forward name="viewicons"            path="/icons.jsp" />
+        <forward name="credits"              path="/credits.jsp" />
+        <forward name="viewadmin"            path="/viewadmin.jsp" />
+        <forward name="newuser"              path="/newuser.jsp" />
+        <forward name="editproject"          path="/editproject.jsp" />
+        <forward name="mapowners"            path="/mapowners.jsp" />
+        <forward name="mapowners_do"         path="/mapowners.do" />
+        <forward name="mapmembers"           path="/mapmembers.jsp" />
+        <forward name="mapmembers_do"        path="/mapmembers.do" />
+        <forward name="mapconfiguration"     path="/mapconfiguration.jsp" />
+        <forward name="mapconfiguration_do"  path="/mapconfiguration.do" />
+        <forward name="editmapboundaries"    path="/editmapboundaries.jsp" />
+        <forward name="editmaplayers"     path="/editmaplayers.jsp" />
+        <forward name="editmaplayers_do"     path="/editmaplayers.do" />
+        <forward name="editkeywords"         path="/editkeywords.jsp" />
+        <forward name="editkeywords_do"      path="/editkeywords.do" />
+        <forward name="editcategories"       path="/editcategories.jsp" />
+        <forward name="editcategories_do"    path="/editcategories.do" />
+        <forward name="editkeysandcats"      path="/editkeysandcats.jsp" />
+        <forward name="editicons"            path="/editicons.jsp" />
+        <forward name="editiconslayers"       path="/editiconslayers.jsp" />
+        <forward name="editiconscats"        path="/editiconscats.jsp" />
+        <forward name="choose_media_type"    path="/choose_media_type.jsp" />
+        <forward name="choose_media_type_do" path="/choose_media_type_do" />
+        <forward name="add_new_image"        path="/add_new_image.jsp" />
+        <forward name="add_new_audio"        path="/add_new_audio.jsp" />
+        <forward name="add_new_text"         path="/add_new_text.jsp" />
+        <forward name="add_new_video"        path="/add_new_video.jsp" />
+        <forward name="newhsmedia_do"        path="/newhsmedia.do" />
+        <forward name="editdisplaykeywords"  path="/editdisplaykeywords.jsp" />
+        <forward name="editkeywords_openkeywords" path="/editkeywords_openkeywords.jsp" />
+        <forward name="editkeywords_none"    path="/editkeywords_none.jsp" />
+        <forward name="editcategories_disabled" path="/editcategories_disabled.jsp" />
+        <forward name="editicons_open"       path="/editicons_open.jsp" />
+        <forward name="editdisplaykeywords_disabled" path="/editdisplaykeywords_disabled.jsp" />
+        <forward name="edithsdisplaymode"     path="/edithsdisplaymode.jsp" />
+        <forward name="maphsdisplaymode"     path="/maphsdisplaymode.jsp" />
+        <forward name="getobjectinfo"        path="/getobjectinfo.jsp" />
+
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+
+        <action path="/logon"
+                type="com.bnmi.ourmap.web.actions.LogonAction"
+                validate="true"
+                scope="request"
+                input="/index.jsp"
+                name="LogonActionForm"
+        >
+        </action>
+
+        <action path="/logout"
+                type="com.bnmi.ourmap.web.actions.LogoutAction"
+                />
+        <action path="/viewprofile"
+                type="com.bnmi.ourmap.web.actions.ViewProfile"
+                />
+
+        <action path="/editprofile"
+                type="com.bnmi.ourmap.web.actions.EditProfile"
+                validate="true"
+                scope="request"
+                input="/edit_profile.jsp"
+                name="EditProfileForm"
+        >
+        </action>
+
+        <action path="/listusers"
+                type="com.bnmi.ourmap.web.actions.ListUsers"
+                />
+
+        <action path="/newproject"
+                type="com.bnmi.ourmap.web.actions.NewProject"
+                validate="true"
+                scope="request"
+                input="/new_project.jsp"
+                name="NewProjectForm"
+        >
+        </action>
+
+        <action path="/listprojects"
+                type="com.bnmi.ourmap.web.actions.ListProjects"
+                />
+
+        <action path="/deleteProject"
+                type="com.bnmi.ourmap.web.actions.DeleteProject"
+                />
+
+        <action path="/viewproject"
+                name="ViewProjectForm"
+                validate="true"
+                scope="request"
+                input="/enterproject.jsp"
+                type="com.bnmi.ourmap.web.actions.ViewProject"
+                />
+
+        <action path="/newmap"
+                type="com.bnmi.ourmap.web.actions.NewMap"
+                validate="true"
+                scope="request"
+                input="/new_map.jsp"
+                name="NewMapForm"
+        >
+        </action>
+
+        <action path="/viewmap"
+                type="com.bnmi.ourmap.web.actions.ViewMap"
+                validate="true"
+                scope="request"
+                input="/viewmap.jsp"
+                name="ViewMapForm"
+                >
+         </action>
+
+        <action path="/deletemap"
+                name="DeleteMapForm"
+                input="/deletemap.jsp"
+                validate="true"
+                scope="request"
+                type="com.bnmi.ourmap.web.actions.DeleteMap"
+                />
+
+        <action path="/editmap"
+                type="com.bnmi.ourmap.web.actions.EditMap"
+                validate="true"
+                scope="request"
+                input="/editmap.jsp"
+                name="EditMapForm"
+                >
+        </action>
+
+        <action path="/newlayer"
+                type="com.bnmi.ourmap.web.actions.NewLayer"
+                validate="true"
+                scope="request"
+                input="/results.jsp"
+                name="NewLayerForm"
+                ></action>
+
+        <action path="/listlayers"
+                type="com.bnmi.ourmap.web.actions.ListLayers"
+                validate="true"
+                scope="request"
+                input="/listlayers.jsp"
+                name="ListLayersForm" ></action>
+
+         <action path="/deletelayer"
+                 type="com.bnmi.ourmap.web.actions.DeleteLayer"
+                 scope="request"
+                 ></action>
+
+         <action path="/newhotspot"
+                 type="com.bnmi.ourmap.web.actions.NewHotspot"
+                 validate="true"
+                 scope="request"
+                 input="/new_hotspot2.jsp"
+                 name="NewHotspotForm"></action>
+
+         <action path="/listhotspots"
+                 type="com.bnmi.ourmap.web.actions.ListHotspots"
+                 validate="true"
+                 name="ListHotspotsForm"
+                 scope="request" ></action>
+
+         <action path="/newmedia"
+                 type="com.bnmi.ourmap.web.actions.NewMedia"
+                 validate="true"
+                 name="NewMediaForm"
+                 input="/list_objects_to_upload.jsp"
+                 scope="request" ></action>
+
+         <action path="/newhsmedia"
+                 type="com.bnmi.ourmap.web.actions.NewHsMedia"
+                 validate="true"
+                 name="NewHsMediaForm"
+                 scope="request" ></action>
+
+
+         <action path="/listSessionObjects"
+                 type="com.bnmi.ourmap.web.actions.ListSessionObjects"
+                 ></action>
+
+         <action path="/removeUpload"
+                 type="com.bnmi.ourmap.web.actions.RemoveUpload"
+                 ></action>
+
+         <action path="/removeHsUpload"
+                 type="com.bnmi.ourmap.web.actions.RemoveHsObject"
+                 ></action>
+
+
+         <action path="/getObject"
+                 type="com.bnmi.ourmap.web.actions.GetObjectData"
+                 ></action>
+
+         <action path="/getThumbT"
+                 type="com.bnmi.ourmap.web.actions.GetThumbT"
+                 ></action>
+
+         <action path="/getThumb"
+                 type="com.bnmi.ourmap.web.actions.GetThumb"
+                 ></action>
+
+
+         <action path="/viewcontent"
+                 type="com.bnmi.ourmap.web.actions.ViewContent"
+                 ></action>
+
+        <action path="/editlayer"
+                type="com.bnmi.ourmap.web.actions.EditLayer"
+                />
+
+        <action path="/newcategory"
+                type="com.bnmi.ourmap.web.actions.NewCategory"
+                />
+
+        <action path="/listcategories"
+                type="com.bnmi.ourmap.web.actions.ListCategories"
+                />
+
+        <action path="/deletecategory"
+                type="com.bnmi.ourmap.web.actions.DeleteCategory"
+                />
+
+        <action path="/newkeyword"
+                type="com.bnmi.ourmap.web.actions.NewKeyword"
+                />
+
+        <action path="/editkeyword"
+                type="com.bnmi.ourmap.web.actions.EditKeyword"
+                />
+
+
+        <action path="/deletekeyword"
+                type="com.bnmi.ourmap.web.actions.DeleteKeyword"
+                />
+
+        <action path="/listkeywords"
+                type="com.bnmi.ourmap.web.actions.ListKeywords"
+                />
+
+        <action path="/orgcats"
+                type="com.bnmi.ourmap.web.actions.OrgCategories"
+                />
+
+        <action path="/previewmap"
+                type="com.bnmi.ourmap.web.actions.PreviewMap"
+                />
+
+        <action path="/setsessionlayers"
+                type="com.bnmi.ourmap.web.actions.SetSessionLayers"
+                />
+
+        <action path="/newsessionlayer"
+                type="com.bnmi.ourmap.web.actions.NewSessionLayer"
+                />
+
+        <action path="/editsessionlayer"
+                type="com.bnmi.ourmap.web.actions.EditSessionLayer"
+                />
+
+        <action path="/deletesessionlayer"
+                type="com.bnmi.ourmap.web.actions.DeleteSessionLayer"
+                />
+
+        <action path="/newsessionkeyword"
+                type="com.bnmi.ourmap.web.actions.NewSessionKeyword"
+                />
+
+        <action path="/deletesessionkeyword"
+                type="com.bnmi.ourmap.web.actions.DeleteSessionKeyword"
+                />
+
+        <action path="/orgcatssession"
+                type="com.bnmi.ourmap.web.actions.OrgCatsSession"
+                />
+
+        <action path="/newsessioncategory"
+                type="com.bnmi.ourmap.web.actions.NewSessionCategory"
+                />
+
+        <action path="/deletesessioncategory"
+                type="com.bnmi.ourmap.web.actions.DeleteSessionCategory"
+                />
+
+        <action path="/editsessioncategory"
+                type="com.bnmi.ourmap.web.actions.EditSessionCategory"
+                />
+
+        <action path="/editsessionkeyword"
+                type="com.bnmi.ourmap.web.actions.EditSessionKeyword"
+                />
+
+        <action path="/listobjects"
+                type="com.bnmi.ourmap.web.actions.ListObjects"
+                />
+
+         <action path="/newobject"
+                 type="com.bnmi.ourmap.web.actions.NewObject"
+                 validate="true"
+                 name="NewObjectForm"
+                 input="/list_objects.jsp"
+                 scope="request" ></action>
+
+        <action path="/deleteobject"
+                type="com.bnmi.ourmap.web.actions.DeleteObject"
+                />
+
+
+
+        <action path="/SaveMapFeature"
+                type="com.bnmi.ourmap.web.actions.SaveMapFeature"
+                validate="true"
+                scope="request"
+                input="/SaveMapFeature.jsp"
+                name="SaveMapFeatureForm"
+        >
+        </action>
+
+        <action path="/layertab"
+                type="com.bnmi.ourmap.web.actions.LayerTab" />
+
+
+        <action path="/addnewmediahs"
+                type="com.bnmi.ourmap.web.actions.AddNewMediaHs"
+                validate="true"
+                scope="request"
+                input="/add_new_media_hs.jsp"
+                name="AddNewMediaHsForm"
+        >
+        </action>
+
+        <action path="/ordersessionobjects"
+                type="com.bnmi.ourmap.web.actions.OrderSessionObjects"
+                validate="true"
+                scope="request"
+                input="/results.jsp"
+                name="OrderSessionObjectsForm"
+        >
+        </action>
+
+        <action path="/orderobjects"
+                type="com.bnmi.ourmap.web.actions.OrderObjects"
+                validate="true"
+                scope="request"
+                input="/results.jsp"
+                name="OrderObjectsForm"
+        >
+        </action>
+
+
+        <action path="/editsessionobject"
+                type="com.bnmi.ourmap.web.actions.EditSessionObject"
+                />
+
+        <action path="/edithsobject"
+                type="com.bnmi.ourmap.web.actions.EditHsObject"
+                />
+
+
+        <action path="/hscontent"
+                type="com.bnmi.ourmap.web.actions.HsContent"
+                />
+
+        <action path="/viewhscontent"
+                type="com.bnmi.ourmap.web.actions.ViewHsContent"
+                />
+
+        <action path="/viewhsmetadata"
+                type="com.bnmi.ourmap.web.actions.ViewHsMetadata" />
+
+        <action path="/viewobjectmetadata"
+                type="com.bnmi.ourmap.web.actions.ViewObjectMetadata" />
+
+        <action path="/viewhsdescription"
+                type="com.bnmi.ourmap.web.actions.ViewHsDescription" />
+
+        <action path="/viewhsobject"
+                type="com.bnmi.ourmap.web.actions.ViewHsObject" />
+
+        <action path="/ediths"
+                type="com.bnmi.ourmap.web.actions.EditHs"
+                validate="true"
+                scope="request"
+                input="/ediths.jsp"
+                name="EditHsForm"
+        >
+        </action>
+
+        <action path="/viewhs"
+                type="com.bnmi.ourmap.web.actions.ViewHs" />
+
+        <action path="/edithsmedia"
+                type="com.bnmi.ourmap.web.actions.EditHsMedia" />
+
+        <action path="/viewhsedit"
+                type="com.bnmi.ourmap.web.actions.ViewHsEdit" />
+
+        <action path="/deletehs"
+                type="com.bnmi.ourmap.web.actions.DeleteHs" />
+
+        <action path="/edithsinfo"
+                type="com.bnmi.ourmap.web.actions.EditHsInfo" />
+
+        <action path="/viewicons"
+                type="com.bnmi.ourmap.web.actions.ViewIcons" />
+
+        <action path="/credits"
+                type="com.bnmi.ourmap.web.actions.Credits" />
+
+        <action path="/viewadmin"
+                type="com.bnmi.ourmap.web.actions.ViewAdmin" />
+
+        <action path="/newuser"
+                name="NewUserForm"
+                validate="true"
+                input="/newuser.jsp"
+                scope="request"
+                type="com.bnmi.ourmap.web.actions.NewUser"
+                />
+
+        <action path="/editproject"
+                name="EditProjectForm"
+                validate="true"
+                input="/editproject.jsp"
+                scope="request"
+                type="com.bnmi.ourmap.web.actions.EditProject"
+                />
+
+
+        <action path="/addmapowner"
+                type="com.bnmi.ourmap.web.actions.AddMapOwner"
+                scope="request"
+                name="AddMapOwnerForm" />
+
+        <action path="/mapmembers"
+                type="com.bnmi.ourmap.web.actions.MapMembers" />
+
+        <action path="/addmapmember"
+                type="com.bnmi.ourmap.web.actions.AddMapMember"
+                scope="request"
+                name="AddMapMemberForm" />
+
+        <action path="/mapconfiguration"
+                type="com.bnmi.ourmap.web.actions.MapConfiguration"
+                />
+
+        <action path="/editmapprivacy"
+                scope="request"
+                name="EditMapPrivacyForm"
+                input="/editmapprivacy.jsp"
+                type="com.bnmi.ourmap.web.actions.EditMapPrivacy" />
+
+        <action path="/editablehotspots"
+                scope="request"
+                name="EditableHotspotsForm"
+                input="/editablehotspots.jsp"
+                type="com.bnmi.ourmap.web.actions.EditableHotspots" />
+
+        <action path="/listhsobjects"
+                scope="request"
+                type="com.bnmi.ourmap.web.actions.ListHsObjects" />
+
+        <action path="/editmapboundaries"
+                scope="request"
+                validate="true"
+                input="/editmapboundaries.jsp"
+                name="EditMapBoundariesForm"
+                type="com.bnmi.ourmap.web.actions.EditMapBoundaries" />
+
+        <action path="/editmaplayers"
+                scope="request"
+                validate="true"
+                input="/editmaplayers.jsp"
+                name="EditMapLayersForm"
+                type="com.bnmi.ourmap.web.actions.EditMapLayers" />
+
+        <action path="/editkeywords"
+                type="com.bnmi.ourmap.web.actions.EditKeywords" />
+
+        <action path="/editcategories"
+                type="com.bnmi.ourmap.web.actions.EditCategories" />
+
+        <action path="/editkeysandcats"
+                type="com.bnmi.ourmap.web.actions.EditKeysAndCats" />
+
+        <action path="/editicons"
+                type="com.bnmi.ourmap.web.actions.EditIcons" />
+
+        <action path="/editcategory"
+                type="com.bnmi.ourmap.web.actions.EditCategory" />
+
+        <action path="/choosemediatype"
+                type="com.bnmi.ourmap.web.actions.ChooseMediaType" />
+
+        <action path="/addnewimage"
+                type="com.bnmi.ourmap.web.actions.AddNewImage" />
+
+        <action path="/addnewaudio"
+                type="com.bnmi.ourmap.web.actions.AddNewAudio" />
+
+        <action path="/addnewtext"
+                type="com.bnmi.ourmap.web.actions.AddNewText" />
+
+        <action path="/addnewvideo"
+                type="com.bnmi.ourmap.web.actions.AddNewVideo" />
+
+        <action path="/saveeditlayers"
+                type="com.bnmi.ourmap.web.actions.SaveEditLayers" />
+
+        <action path="/saveiconkeywords"
+                type="com.bnmi.ourmap.web.actions.SaveIconKeywords" />
+
+        <action path="/saveiconcategories"
+                type="com.bnmi.ourmap.web.actions.SaveIconCategories" />
+
+        <action path="/editdisplaykeywords"
+                name="EditDisplayKeywordsForm"
+                validate="true"
+                scope="request"
+                input="/editdisplaykeywords.jsp"
+                type="com.bnmi.ourmap.web.actions.EditDisplayKeywords"  />
+
+        <action path="/saveeditcategories"
+                type="com.bnmi.ourmap.web.actions.SaveEditCategories" />
+
+        <action path="/listkeywordscombo"
+                type="com.bnmi.ourmap.web.actions.ListKeywordsCombo" />
+
+        <action path="/newhotspotdisplaymode"
+                type="com.bnmi.ourmap.web.actions.NewHotspotDisplayMode" />
+
+        <action path="/edithsdisplaymode"
+                type="com.bnmi.ourmap.web.actions.EditHsDisplayMode" />
+
+        <action path="/maphsdisplaymode"
+                type="com.bnmi.ourmap.web.actions.MapHsDisplayMode" />
+
+        <action path="/addcontentnew"
+                type="com.bnmi.ourmap.web.actions.AddContentNew" />
+                
+        <action path="/setbasemap"
+                type="com.bnmi.ourmap.web.actions.SetBaseMap" />
+                
+        <action path="/getbasemap"
+                type="com.bnmi.ourmap.web.actions.GetBaseMap" />
+
+        <action path="/getobjectinfo"
+                type="com.bnmi.ourmap.web.actions.GetObjectInfo" />
+
+
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/bnmi/ourmap/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
