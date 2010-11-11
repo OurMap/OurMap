@@ -112,7 +112,6 @@ public class ViewMap extends Action {
         ViewMapForm forma = (ViewMapForm) form;
         User principal = (User) session.getAttribute(Constantes.USER);
 
-        log.info("CHECK 1");
 
         // Must do these tasks:
         // 1. Get a map
@@ -124,16 +123,14 @@ public class ViewMap extends Action {
         Map map = forma.getMap();
         Project p = null;
 
-        log.info("CHECK 2");
 
 
         // If the map exists, check permissions to see it
         if ( forma.isDbMap() )
         {
-            log.info("CHECK 3");
             // Get the project
             p = del.getProject( map.getProjectId() );
-            log.info("CHECK 4");
+
 
             // Check for consistency BEFORE checking for permissions
             del.checkProjectConsistency(p);
@@ -145,7 +142,6 @@ public class ViewMap extends Action {
 
         }
 
-        log.info("CHECK 5");
 
         LinkedHashMap<Layer,LinkedHashMap<Category,LinkedHashSet<Keyword>>> layerMap = new LinkedHashMap<Layer,LinkedHashMap<Category,LinkedHashSet<Keyword>>>();
 
